@@ -43,7 +43,7 @@ jobs:
             command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
     
     workflows:
-      version:
+      version: 2
       build:
         jobs:
           - "jdk-8"
