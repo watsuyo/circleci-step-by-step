@@ -15,32 +15,32 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
     
     jdk-10:
-    docker:
-      - image: circleci/openjdk:10-jdk-browsers
-      - image: circleci/postgres:9.6.3-alpine
-        enviroment:
-          POSTGRES_USER: root
-          POSTGRES_: cicle_test
-    steps:
-      - checkout
-      - run: echo "Hello CircleCI!"
-      - run:
-          name: Waite for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
+      docker:
+        - image: circleci/openjdk:10-jdk-browsers
+        - image: circleci/postgres:9.6.3-alpine
+          enviroment:
+            POSTGRES_USER: root
+            POSTGRES_: cicle_test
+      steps:
+        - checkout
+        - run: echo "Hello CircleCI!"
+        - run:
+            name: Waite for DB
+            command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
           
     jdk-11:
-    docker:
-      - image: circleci/openjdk:11-jdk-browsers
-      - image: circleci/postgres:9.6.3-alpine
-        enviroment:
-          POSTGRES_USER: root
-          POSTGRES_: cicle_test
-    steps:
-      - checkout
-      - run: echo "Hello CircleCI!"
-      - run:
-          name: Waite for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
+      docker:
+        - image: circleci/openjdk:11-jdk-browsers
+        - image: circleci/postgres:9.6.3-alpine
+          enviroment:
+            POSTGRES_USER: root
+            POSTGRES_: cicle_test
+      steps:
+        - checkout
+        - run: echo "Hello CircleCI!"
+        - run:
+            name: Waite for DB
+            command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
     
     workflow:
       version:
